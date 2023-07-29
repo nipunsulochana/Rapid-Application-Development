@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 01</title>
+        <body>
+
+        <label for="width">Width of the cube :</label>
+        <input type="number" id="width" required><br><br>
+        <button onclick="Cube_Volume()">Get volume of the cube</button><br><br>
+
+        <p id="result_volume"></p>
+
+            <script>
+            function Cube_Volume(){
+                const width = document.getElementById("width").value;
+                let volume = width*width*width;
+
+                document.getElementById("result_volume").innerHTML = "Volume of the cube = " +volume;
+            }
+            </script>
+        </body>
+    </head>
+</html>

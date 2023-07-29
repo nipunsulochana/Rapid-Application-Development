@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 01</title>
+        <body>
+
+        <label for="radius">Radius of the circle :</label>
+        <input type="number" id="radius" required><br><br>
+        <button onclick="Circle_Perimeter()">Get perimeter of the circle</button><br><br>
+        <button onclick="Circle_Area()">Get area of the circle</button><br><br>
+
+        <p id="result_perimeter"></p>
+        <p id="result_area"></p>
+
+            <script>
+            function Circle_Perimeter(){
+                const pi = 3.14;
+                const radius = document.getElementById("radius").value;
+                let perimeter = 2*pi*radius;
+
+                document.getElementById("result_perimeter").innerHTML = "Perimeter of the circle = " +perimeter;
+            }
+
+            function Circle_Area(){
+                const pi = 3.14;
+                const radius = document.getElementById("radius").value;
+                let area = pi*radius*radius;
+
+                document.getElementById("result_area").innerHTML = "Area of the circle = " +area;
+            }
+            </script>
+        </body>
+    </head>
+</html>

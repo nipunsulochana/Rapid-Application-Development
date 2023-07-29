@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 05</title>
+    </head>
+    <body>
+        <script>
+            function isPrimeNumber(){
+                var num = document.getElementById("num").value;
+                var output = document.getElementById("output");
+
+                if(num < 2){
+                    output.innerHTML = "The number is not prime.";
+                    return;
+                }
+                for(let i=2; i<=Math.sqrt(num); i++){
+                    if (num % i === 0) {
+                        output.innerHTML = "The number is not prime.";
+                    return;
+                    }
+                }
+
+                output.innerHTML = "The number is prime.";
+            }
+        </script>
+
+        <label for="num">Number :</label>
+        <input type="number" id="num" required><br><br>
+        <button onclick="isPrimeNumber()">Check</button><br>
+
+        <p id="output"></p>
+    </body>
+</html>

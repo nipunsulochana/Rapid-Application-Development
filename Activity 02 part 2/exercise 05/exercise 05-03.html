@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 05</title>
+    </head>
+    <body>
+        <script>
+            function findLargestNumber(){
+                var num1 = document.getElementById("num1").value;
+                var num2 = document.getElementById("num2").value;
+                var num3 = document.getElementById("num3").value;
+
+                var largestNumber = num1;
+
+                if(num2 > largestNumber){
+                    largestNumber = num2;
+                }
+                if(num3 > largestNumber){
+                    largestNumber = num3;
+                }
+
+                document.getElementById("output").innerHTML = largestNumber;
+            }
+        </script>
+
+        <label for="num1">Number 1 :</label>
+        <input type="number" id="num1" required><br><br>
+        <label for="num2">Number 2 :</label>
+        <input type="number" id="num2" required><br><br>
+        <label for="num3">Number 3 :</label>
+        <input type="number" id="num3" required><br><br>
+        <button onclick="findLargestNumber()">Find Largest Number</button>
+
+        <br><p id="output"></p>
+    </body>
+</html>

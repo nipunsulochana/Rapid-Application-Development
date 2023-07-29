@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 01</title>
+        <body>
+            <script>
+            const person = {
+                firstName:"John",
+                lastName :"Doe",
+                id       :5566,
+                fullName :function(){
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+
+            document.write("First Name = " + person.firstName + "<br>");
+            document.write("Last Name = " + person.lastName + "<br>");
+            document.write("Full Name = " + person.fullName() +"<br>");
+            document.write("ID = " + person.id);
+            </script>
+        </body>
+    </head>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 05</title>
+    </head>
+    <body>
+        <script>
+            function getGreeting(){
+                var time = document.getElementById("timeInput").value;
+
+                if(time<"10:00"){
+                    greeting = "Good Morning";
+                }
+                else if(time<"20:00"){
+                    greeting = "Good Day";
+                }
+                else{
+                    greeting = "Good Evening";
+                }
+
+                document.getElementById("output").innerHTML = greeting;
+            }
+        </script>
+
+        <label for="timeInput">Please enter your time (HH:MM) :</label><br>
+        <input type="text" id="timeInput" required><br><br>
+        <button onclick="getGreeting()">Enter</button>
+
+        <br><p id="output"></p>
+    </body>
+</html>

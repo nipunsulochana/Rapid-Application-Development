@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 01</title>
+        <body>
+            <script>
+            const myGirls = ["Cecilie", "Lone"];
+            const myBoys = ["Emil", "Tobias", "Linus"];
+
+            function mergeArrays(arr1, arr2) {
+                var mergedArray = arr1.slice();
+                mergedArray.push.apply(mergedArray, arr2);
+                return mergedArray;
+            }
+
+            var merged = mergeArrays(myGirls, myBoys);
+
+            document.write("Array after merging : " +merged);
+            </script>
+        </body>
+    </head>
+</html>

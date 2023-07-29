@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 05</title>
+    </head>
+    <body>
+        <label>Enter number of array elements :</label>
+        <input type="number" id="numElements" required><br><br>
+
+        <button onclick="displayElements()">Enter Elements</button><br>
+
+        <p id="output"></p>
+        
+        <script>
+            function displayElements(){
+                var numElements = document.getElementById("numElements").value;
+                var array = [];
+
+                for(let i=0; i<=numElements; i++){
+                    var element = prompt("Enter element at index " +i +":");
+                    array.push(element);
+                    }
+                    
+                document.write("Array : ");
+                for(let i=0; i<array.length; i++){
+                    document.write(array[i] +"  ");
+                }
+            }
+        </script>
+    </body>
+</html>

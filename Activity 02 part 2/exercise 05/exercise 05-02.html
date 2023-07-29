@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 05</title>
+    </head>
+    <body>
+        <ul>
+            <li>Banana</li>
+            <li>Pineapple</li>
+            <li>Apple</li>
+        </ul><br>
+
+        <label for="value">Please enter your fruit :</label><br>
+        <input type="text" id="value" required><br><br>
+        <button onclick="Color_of_Fruits()">Get Color</button>
+
+        <br><p id="output"></p>
+        <script>
+            function Color_of_Fruits(){
+                var fruit = document.getElementById("value").value;
+
+                switch(fruit){
+                    case "Banana":
+                        alert("Yellow");
+                        break;
+                    case "Pineapple":
+                        alert("Orange");
+                        break;
+                    case "Apple":
+                        alert("Green");
+                        break;
+                }
+
+                document.getElementById("output").innerHTML = color;
+            }
+        </script>
+    </body>
+</html>
