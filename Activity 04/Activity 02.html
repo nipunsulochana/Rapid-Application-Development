@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab Sheet 04-Activity 02</title>
+    </head>
+    <body>
+        <script>
+            class Rectangle{
+                constructor(height, width){
+                    this.height = height;
+                    this.width = width;
+                }
+
+                getArea(){
+                    return this.height * this.width;
+                }
+            }
+
+            const rec1 = new Rectangle('10', '5');
+            const rec2 = new Rectangle('15', '8');
+
+            document.write("Area of the rectangle 1 is " +rec1.getArea() +"<br>");
+            document.write("Area of the rectangle 2 is " +rec2.getArea());
+        </script>
+    </body>
+</html>

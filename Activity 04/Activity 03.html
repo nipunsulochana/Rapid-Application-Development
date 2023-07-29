@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab Sheet 04-Activity 03</title>
+    </head>
+    <body>
+        <script>
+            class Dog{
+                constructor(Breed, Age, Color){
+                    this.Breed = Breed;
+                    this.Age = Age;
+                    this.Color = Color;
+                }
+
+                dogEat(){
+                    return `${this.Breed} is Eating`;
+                }
+
+                dogSleep(){
+                    return `${this.Breed} is Sleeping`;
+                }
+
+                dogSit(){
+                    return `${this.Breed} is Sitting`;
+                }
+
+                dogRun(){
+                    return `${this.Breed} is Running`;
+                }
+            } 
+            
+            const dog1 = new Dog('Pug', '3 Years', 'Black')
+            const dog2 = new Dog('Boxer', '2 Years', 'White')
+            const dog3 = new Dog('Poodle', '1 Year', 'Brown')
+
+            document.write("Breed of the Dog 1 is " +dog1.Breed +"<br>");
+            document.write(dog1.dogEat() +"<br><br>");
+
+            document.write("Dog 2 is " +dog2.Age +"old" +"<br>");
+            document.write(dog2.dogSit() +"<br><br>");
+
+            document.write("Color of the Dog 3 is " +dog3.Color +"<br>");
+            document.write(dog3.dogRun() +"<br><br>");
+        </script>    
+    </body>
+</html>

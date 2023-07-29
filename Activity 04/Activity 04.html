@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab Sheet 04-Activity 04</title>
+    </head>
+    <body>
+        <script>
+            class Employee{
+                constructor(Employee_Number, Name, Address, Contact_Number, NIC_Number, Joined_Date, Designation, Salary){
+                    this.Employee_Number = Employee_Number;
+                    this.Name = Name;
+                    this.Address = Address;
+                    this.Contact_Number = Contact_Number;
+                    this.NIC_Number = NIC_Number;
+                    this.Joined_Date = Joined_Date;
+                    this.Designation = Designation;
+                    this.Salary = Salary; 
+                }
+
+                Report_To_Duty(Time){
+                    return `--Arrives at ${Time}`;
+                }
+
+                Duty_Off(Time){
+                    return `--Leaves at ${Time}`;
+                }
+
+                Choose_Lunch_Preference(Preference){
+                    return `--Chooses ${Preference} for lunch`;
+                }
+
+                Request_Leave(Date, Number_of_Dates, Reason){
+                    return `--Requests leave for ${Number_of_Dates} days from ${Date} due to ${Reason}`;
+                }
+            }
+
+            class PermanentEmployee extends Employee{
+                // No additional attributes or behaviors
+            }
+
+            class ContractBasedEmployee extends Employee{
+                constructor(Employee_Number, Name, Address, Contact_Number, NIC_Number, Joined_Date, Designation, Salary){
+                    super(Employee_Number, Name, Address, Contact_Number, NIC_Number, Joined_Date, Designation, Salary);
+                    this.Duration = "1 year";
+                    this.Duty_Extension = 0;
+                }
+
+                Request_Duty_Extension(Extension_Duration){
+                    if (this.Duty_Extension + Extension_Duration <= 3) {
+                        this.Duty_Extension += Extension_Duration;
+                        return `--Requested duty extension for ${Extension_Duration} months`;
+                    } 
+                    else {
+                        return `--Cannot request duty extension for ${Extension_Duration} months. Maximum extension reached`;
+                    }        
+                }
+            }
+
+            class TemporaryEmployee extends Employee{
+                constructor(Employee_Number, Name, Address, Contact_Number, NIC_Number, Joined_Date, Designation, Salary){
+                    super(Employee_Number, Name, Address, Contact_Number, NIC_Number, Joined_Date, Designation, Salary);
+                    this.Duration = "6 months";
+                    this.Duty_Extension = 0;
+                }
+
+                Request_Duty_Extension(Extension_Duration){
+                    if (this.Duty_Extension + Extension_Duration <= 3) {
+                        this.Duty_Extension += Extension_Duration;
+                        return `--Requested duty extension for ${Extension_Duration} months`;
+                    } 
+                    else {
+                        return `--Cannot request duty extension for ${Extension_Duration} months. Maximum extension reached`;
+                    }        
+                }
+            }
+
+            const PermanentEmployee_1 = new PermanentEmployee("P001", "John Doe", "123 Main St", "1234567890", "1234567890123", "2022-01-01", "Manager", 50000);
+                document.write(PermanentEmployee_1.Name +" is a " +PermanentEmployee_1.Designation +"<br>");
+                document.write(PermanentEmployee_1.Report_To_Duty("09:00 AM") +"<br>");
+                document.write(PermanentEmployee_1.Choose_Lunch_Preference("chicken") +"<br>");
+                document.write(PermanentEmployee_1.Duty_Off("05:00 PM") +"<br><br>");
+
+            const ContractBasedEmployee_1 = new ContractBasedEmployee("C001", "Bill Duoo", "228 Park St", "0715896546", "965812457815", "2022-02-10", "Clerk", 30000);
+                document.write(ContractBasedEmployee_1.Name +" is a " +ContractBasedEmployee_1.Designation +"<br>");
+                document.write(ContractBasedEmployee_1.Report_To_Duty("8:00 AM") +"<br>");
+                document.write(ContractBasedEmployee_1.Choose_Lunch_Preference("fish") +"<br>");
+                document.write(ContractBasedEmployee_1.Duty_Off("06:00 PM") +"<br>");
+                document.write(ContractBasedEmployee_1.Request_Leave("2022-05-25", 2, "Virus Flu") +"<br>");
+                document.write(ContractBasedEmployee_1.Request_Duty_Extension(3) +"<br><br>");
+
+            const TemporaryEmployee_1 = new TemporaryEmployee("T001", "Jane Smith", "456 Elm St", "0987654321", "9876543210987", "2022-02-01", "Assistant", 35000);
+                document.write(TemporaryEmployee_1.Name +" is a " +TemporaryEmployee_1.Designation +"<br>");
+                document.write(TemporaryEmployee_1.Report_To_Duty("10:00 AM") +"<br>");
+                document.write(TemporaryEmployee_1.Choose_Lunch_Preference("vegetable") +"<br>");
+                document.write(TemporaryEmployee_1.Duty_Off("06:00 PM") +"<br>");
+                document.write(TemporaryEmployee_1.Request_Leave("2022-03-01", 5, "Family vacation") +"<br>");
+                document.write(TemporaryEmployee_1.Request_Duty_Extension(2) +"<br>");
+                document.write(TemporaryEmployee_1.Request_Duty_Extension(2));
+        </script>
+    </body>
+</html>
