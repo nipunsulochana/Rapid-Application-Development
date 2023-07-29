@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab Sheet 03-Activity 03</title>
+    </head>
+    <body>
+        <script>
+            //Question 01
+            const games = ["The Last of Us", "Uncharted", "God of War", "Bloodborne"]
+
+            document.write("Index of the game \"God of War\" - " +games.indexOf("God of War") +"<br><br>")
+
+            //Question 02
+            const aboutJohn=[["Name","John"], ["Age",30], ["City","Colombo"] ]
+            
+            function createMap(aboutJohn){
+                const newMap =new Map(aboutJohn)
+                return newMap
+            }
+           
+            let intro=createMap(aboutJohn)
+
+            document.write("Name :"+intro.get("Name") +"<br>")
+            document.write("Age :"+intro.get("Age") +"<br>")
+            document.write("City :"+intro.get("City") +"<br><br>")
+
+            //Question 03
+            function deleteFromMap(aboutJohn){
+                aboutJohn.delete("Age")
+            }
+
+            deleteFromMap(intro)
+
+            document.write("Name :"+intro.get("Name") +"<br>")
+            document.write("Age :"+intro.get("Age") +"<br>")
+            document.write("City :"+intro.get("City") +"<br><br>")
+
+            //Question 04
+            const fruitsValue= new Map();
+
+            fruitsValue.set("apple",5)
+            fruitsValue.set("banana",3)
+            fruitsValue.set("orange",2)
+
+            document.write("Value of the key \"banana\" - " +fruitsValue.get("banana") +"<br>")
+            document.write("Number of elements in the map - " +fruitsValue.size)
+        </script>
+    </body>
+</html>

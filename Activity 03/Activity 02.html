@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab Sheet 03-Activity 02</title>
+    </head>
+    <body>
+        <script>
+            //Question 01
+            function bothTrue(value_1, value_2){
+                return value_1 && value_2
+            }
+
+            document.write("Question 01 output - " + bothTrue(true, false) +"<br><br>")
+
+            //Question 02
+            function typeOfInputs(value){
+                return typeof value
+            }
+
+            document.write("Type of natural numbers - " +typeOfInputs(5) +"<br><br>")
+
+            //Question 03
+            function getCurrentDate(){
+                var current_Date = new Date()
+                document.write("Current Date - " +current_Date +"<br>")
+                return typeof current_Date
+            }
+
+            document.write("Type of current date - " +getCurrentDate() +"<br><br>")
+
+            //Question 04
+            function checkStringLength() {
+                var str = "OceanGate"
+                return str.length > 10
+            }
+
+            document.write("Length of \"OceanGate\" is greater than 10 characters - " +checkStringLength())
+        </script>
+    </body>
+</html>

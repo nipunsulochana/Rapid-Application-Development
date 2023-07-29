@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab Sheet 03-Activity 01</title>
+    </head>
+    <body>
+        <script>
+            //Question 01
+            var string_1 = "Programmo"
+            var string_2 = "Phobia"
+
+            function concatStrings(string_a, string_b){
+                return (string_a + string_b)
+            }
+
+            var concatenated_string = concatStrings(string_1, string_2)
+            document.write("Concatenated String - " +concatenated_string +"<br><br>")
+
+            //Question 02
+
+            //Part a
+            function lowerCaseString(string){
+                return string.toLowerCase()
+            }
+
+            var lowerCaseStr = lowerCaseString(concatenated_string)
+            document.write("lowercase String - " +lowerCaseStr +"<br><br>")
+
+            //Part b
+            function upperCaseString(string){
+                return string.toUpperCase()
+            }
+
+            var upperCaseStr = upperCaseString(concatenated_string)
+            document.write("Uppercase String - " +upperCaseStr +"<br><br>")
+
+            //Part c
+            function splitString(string){
+                return string.split(',')
+            }
+
+            var splitStr = splitString("Programmo,Phobia")
+            document.write("Split String - " +"[" + splitStr.map(value => "'" + value + "'").join(",") + "]" +"<br><br>")
+
+            //Part d
+            function indexOfString(string){
+                return string.indexOf("Phobia")
+            }
+
+            var index = indexOfString(concatenated_string)
+            document.write("Index of String - " +index)
+        </script>
+    </body>
+</html>
