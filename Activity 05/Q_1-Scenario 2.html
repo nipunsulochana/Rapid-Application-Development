@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <title>Lab Sheet 05-Activity 01-Scenario 02</title>
+</head>
+<body>
+    <script>
+        class student{
+            constructor(Index_Number, MCQ_Marks, Essay_Marks){
+                this.Index_Number= Index_Number;
+                this.MCQ_Marks= MCQ_Marks;
+                this.Essay_Marks= Essay_Marks;
+            }
+
+            Calculate_Total_Marks(){
+                let total = this.Essay_Marks + this.MCQ_Marks;
+                return total;
+            }
+
+            Display_Total_Marks(){
+                const total = this.Calculate_Total_Marks();
+                document.write("Total marks : " +total +"<br>");
+            }
+
+            Display_Pass_or_Fail(){
+                const total = this.Calculate_Total_Marks();
+                const result = total >= 50 ? "Pass" : "Fail";
+                document.write("Result : " +result +"<br>");
+            }
+
+            Display_Grade(){
+                const total = this.Calculate_Total_Marks();
+                let grade;
+                if(total >= 75){
+                    grade = "Grade A";
+                }
+                else if(total >= 65){
+                    grade = "Grade B";
+                }
+                if(total >= 55){
+                    grade = "Grade C";
+                }
+                if(total >= 35){
+                    grade = "Grade S";
+                }
+                else{
+                    grade = "Grade W";
+                }
+
+                document.write("Grade : " +grade +"<br>");
+            }
+        }
+
+        const student_1 = new student("21005A", 14, 26);
+
+        student_1.Display_Total_Marks();
+        student_1.Display_Pass_or_Fail();
+        student_1.Display_Grade();
+    </script>
+</body>
+</html>

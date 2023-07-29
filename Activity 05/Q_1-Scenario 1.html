@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <title>Lab Sheet 05-Activity 01-Scenario 01</title>
+</head>
+<body>
+    <script>
+        class Student{
+            constructor(Index_Number, Name, DOB, Address, Contact_Number, Email){
+                this.Index_Number= Index_Number;
+                this.Name= Name;
+                this.DOB= DOB;
+                this.Address= Address;
+                this.Contact_Number= Contact_Number;
+                this.Email=Email;
+            }
+
+            show_Full_Details(){
+                document.write("Name -: " +this.Name +"<br>");
+                document.write("Index Number -: " +this.Index_Number +"<br>");
+                document.write("Date of Birth -: " +this.DOB +"<br>");
+                document.write("Address -: " +this.Address +"<br>");
+                document.write("Contact Number -: " +this.Contact_Number +"<br>");
+                document.write("Email Address -: " +this.Email +"<br>");
+                document.write("Group -: " +this.set_Group() +"<br><br>");
+            }
+
+            set_Group(){
+                if(this.Index_Number%4 ==0){
+                    return `Group 01`
+                }
+                else if(this.Index_Number%4 ==1){
+                    return `Group 02`
+                }
+                else if(this.Index_Number%4 ==2){
+                    return `Group 03`
+                }
+                else if(this.Index_Number%4 ==3){
+                    return `Group 04`
+                }
+            }
+        }
+
+        const Student_1 = new Student("21001", "kamal", "2001-05-4", "123 Main St", "0715236894", "kamal1@gmail.com");
+        const Student_2 = new Student("21004", "Nirmal", "2001-07-15", "456 Elm St", "0747812964", "NIR123@gmail.com");
+        const Student_3 = new Student("210010", "Saduni", "2003-07-02", "56 Temple St", "0765812420", "Sadu1000@gmail.com");
+        const Student_4 = new Student("210051", "Darshana", "2000-12-04", "055 Park St", "07612302000", "DNK@gmail.com");
+
+        document.write(" Student 01" +"<br>");
+        document.write("---------------" +"<br>");
+        Student_1.show_Full_Details();
+        //document.write(Student_1.Name +"'s Group - " +Student_1.set_Group());
+
+        document.write(" Student 02" +"<br>");
+        document.write("---------------" +"<br>");
+        Student_2.show_Full_Details();
+
+        document.write(" Student 03" +"<br>");
+        document.write("---------------" +"<br>");
+        Student_3.show_Full_Details();
+
+        document.write(" Student 04" +"<br>");
+        document.write("---------------" +"<br>");
+        Student_4.show_Full_Details();
+    </script>
+</body>
+</html>

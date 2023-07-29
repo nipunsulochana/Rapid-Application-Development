@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<head>
+    <title>Lab Sheet 05-Activity 03</title>
+</head>
+<body>
+    <script>
+        // Abstract class
+        class Game{
+            constructor(Level, Theme, Avatar){
+                this.Level= Level;
+                this.Theme= Theme;
+                this.Avatar= Avatar;
+                this.paused = false;
+                this.cancelled = false;
+            }
+
+            Display_Details(){
+                document.write("Level -: " +this.Level +"<br>");
+                document.write("Theme -: " +this.Theme +"<br>");
+                document.write("Avatar -: " +this.Avatar +"<br><br>");
+            }
+
+            selectLevel(Level) {
+                this.Level = Level;
+                document.write("Level selected: " +this.Level +"<br>");
+            }
+
+            selectTheme(Theme) {
+                this.Theme = Theme;
+                document.write("Theme selected: " +this.Theme +"<br>");
+            }
+
+            selectAvatar(Avatar) {
+                this.Avatar = Avatar;
+                document.write("Avatar selected: " +this.Avatar +"<br>");
+            }
+
+            pause() {
+                this.paused = true;
+                document.write("Game paused" +"<br>");
+            }
+
+            resume() {
+                this.paused = false;
+                document.write("Game resumed" +"<br>");
+            }
+
+            cancel() {
+                this.cancelled = true;
+                document.write("Game cancelled" +"<br>");
+            }
+
+            play() {
+                if (this.cancelled) {
+                document.write("Game cancelled. Cannot play." +"<br>");
+                return;
+                }
+
+                document.write("Game started..." +"<br>");
+                this.playGame();
+
+                if (this.cancelled) {
+                document.write("Game cancelled during play." +"<br>");
+                return;
+                }
+
+                document.write("Game ended." +"<br>");
+            }
+
+            // Abstract method to be implemented by subclasses
+            playGame() {}
+        }
+
+        // Subclass: Car_Game
+        class Car_Game extends Game {
+            constructor(Level, Theme, Avatar) {
+                super(Level, Theme, Avatar);
+            }
+
+            playGame(){
+                let score = 0;
+
+                for (let i = 0; i < 100; i++) {
+                    if (this.paused) {
+                        document.write("Game paused during play." +"<br>");
+                        return;
+                    }
+
+                    score += 1;
+
+                    if (score >= 100) {
+                        document.write("Congratulations! You reached the winning score." +"<br>");
+                        return;
+                    }
+                }
+
+                document.write("Game over. You did not reach the winning score." +"<br>");
+            }
+        }
+            
+
+        // Subclass: Shooting_Game
+        class Shooting_Game extends Game {
+            constructor(Level, Theme, Avatar, mission) {
+                super(Level, Theme, Avatar);
+                this.mission= mission;
+            }
+
+            playGame(){
+                document.write("Selected Mission: " +this.mission +"<br>");
+                document.write("Mission started..." +"<br>");
+
+                // Simulating game play
+                // ...
+
+                document.write("Mission completed!" +"<br>");
+            }
+        }
+
+        // Subclass: Puzzle_Game
+        class Puzzle_Game extends Game {
+            constructor(Level, Theme, Avatar, timeLimit) {
+                super(Level, Theme, Avatar);
+                this.timeLimit= timeLimit;
+            }
+
+            playGame() {
+                document.write("Time limit set: " +this.timeLimit +"seconds" +"<br>");
+                document.write("Puzzle game started..." +"<br>");
+
+                // Simulating game play
+                // ...
+
+                document.write("Puzzle solved within the time limit. You are the winner!" +"<br>");
+            }
+        }
+
+        const carGame = new Car_Game("Beginner", "City", "Sports Car");
+            carGame.Display_Details();
+            carGame.selectTheme("Desert");
+            carGame.pause();
+            carGame.play();
+            carGame.resume();
+            carGame.play();
+            carGame.cancel();
+            document.write("<br><br>");
+
+        const shootingGame = new Shooting_Game("Intermediate", "Forest", "Soldier", "Rescue Mission");
+            shootingGame.Display_Details();
+            shootingGame.selectAvatar("Sniper");
+            shootingGame.play(); 
+            document.write("<br><br>");
+
+        const puzzleGame = new Puzzle_Game("Beginner", "Space", "Astronaut", 180);
+            puzzleGame.Display_Details();
+            puzzleGame.selectLevel("Advanced");
+            puzzleGame.selectTheme("Jungle");
+            puzzleGame.play();
+    </script>
+</body>
+</html>

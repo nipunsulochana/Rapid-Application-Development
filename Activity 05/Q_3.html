@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <title>Lab Sheet 05-Activity 03</title>
+</head>
+<body>
+    <script>
+        // Abstract class
+        class Book{
+            constructor(Name, Price, Author, Publisher){
+                this.Name= Name;
+                this.Price= Price;
+                this.Author= Author;
+                this.Publisher= Publisher;
+            }
+
+            Display_Details(){
+                document.write("Name -: " +this.Name +"<br>");
+                document.write("Price -: " +this.Price +"<br>");
+                document.write("Author -: " +this.Author +"<br>");
+                document.write("Publisher -: " +this.Publisher +"<br>");
+                document.write("Discount -: Rs:" +this.Calculate_Discount().toFixed(2) +"<br>");
+                document.write("Net Price -: Rs:" +this.Calculate_NetPrice().toFixed(2) +"<br><br>");
+            }
+
+            Calculate_NetPrice(){
+                return this.Price - this.Calculate_Discount();
+            }
+
+            // Abstract method to be implemented by subclasses
+            Calculate_Discount(){
+                return 0;
+            }
+        }
+
+        // Subclass: Novel
+        class Novel extends Book {
+            constructor(Name, Price, Author, Publisher) {
+                super(Name, Price, Author, Publisher);
+                document.write("Type -: Novel" +"<br>");
+            }
+
+            Calculate_Discount(){
+                return this.Price*0.15;
+            }
+        }
+
+        // Subclass: Short_Story
+        class Short_Story extends Book {
+            constructor(Name, Price, Author, Publisher) {
+                super(Name, Price, Author, Publisher);
+                document.write("Type -: Short Story" +"<br>");
+            }
+
+            Calculate_Discount(){
+                return this.Price*0.15;
+            }
+        }
+
+        // Subclass: Biograph
+        class Biograph extends Book {
+            constructor(Name, Price, Author, Publisher) {
+                super(Name, Price, Author, Publisher);
+                document.write("Type -: Biograph" +"<br>");
+            }
+
+            Calculate_Discount(){
+                return this.Price*0.1;
+            }
+        }
+
+        // Subclass: Educational_Book
+        class Educational_Book extends Book {
+            constructor(Name, Price, Author, Publisher) {
+                super(Name, Price, Author, Publisher);
+                document.write("Type -: Educational Book" +"<br>");
+            }
+
+            Calculate_Discount(){
+                return this.Price*0.2;
+            }
+        }
+
+        let book_1 = new Novel("Guru Geethaya", 420, "Mr.Mahinda Prasad", "ABC Publishers");
+        book_1.Display_Details();
+        let book_2 = new Short_Story("Seetha", 250, "Mr.Athula", "Saman Publishers");
+        book_2.Display_Details();
+        let book_3 = new Biograph("Oba Ma", 1250, "Mr.Vihas Perera", "Ahas Publishers");
+        book_3.Display_Details();
+        let book_4 = new Educational_Book("500 MCQ-Physics", 1540, "DR.Gimhan", "Daduru Publishers");
+        book_4.Display_Details(); 
+    </script>
+</body>
+</html>

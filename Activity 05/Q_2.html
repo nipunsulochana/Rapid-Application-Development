@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+    <title>Lab Sheet 05-Activity 02</title>
+</head>
+<body>
+    <script>
+        // Abstract class
+        class Solid_Object {
+            constructor() {}
+
+            // Abstract methods to be implemented by subclasses
+            calculateSurfaceArea(){}
+
+            calculateVolume() {}
+        }
+
+        // Subclass: Cube
+        class Cube extends Solid_Object {
+            constructor(width) {
+                super();
+                this.width = width;
+            }
+
+            calculateSurfaceArea() {
+                return 6 * this.width * this.width;
+            }
+
+            calculateVolume() {
+                return this.width * this.width * this.width;
+            }
+        }
+
+        // Subclass: Cuboid
+        class Cuboid extends Solid_Object {
+            constructor(length, width, height) {
+                super();
+                this.length = length;
+                this.width = width;
+                this.height = height;
+            }
+
+            calculateSurfaceArea() {
+                return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+            }
+
+            calculateVolume() {
+                return this.length * this.width * this.height;
+            }
+        }
+
+        // Subclass: Cylinder
+        class Cylinder extends Solid_Object {
+            constructor(radius, height) {
+                super();
+                this.radius = radius;
+                this.height = height;
+            }
+
+            calculateSurfaceArea() {
+                return 2 * Math.PI * this.radius * this.radius + 2 * Math.PI * this.radius * this.height;
+            }
+
+            calculateVolume() {
+                return Math.PI * this.radius * this.radius * this.height;
+            }
+        }
+
+        // Subclass: Sphere
+        class Sphere extends Solid_Object {
+            constructor(radius) {
+                super();
+                this.radius = radius;
+            }
+
+            calculateSurfaceArea() {
+                return 4 * Math.PI * this.radius * this.radius;
+            }
+
+            calculateVolume() {
+                return (4 / 3) * Math.PI * this.radius * this.radius * this.radius;
+            }
+        }
+
+        // Subclass: Cone
+        class Cone extends Solid_Object {
+            constructor(radius, height) {
+                super();
+                this.radius = radius;
+                this.height = height;
+            }
+
+            calculateSurfaceArea() {
+                const slantHeight = Math.sqrt(this.radius * this.radius + this.height * this.height);
+                return Math.PI * this.radius * (this.radius + slantHeight);
+            }
+
+            calculateVolume() {
+                return (1 / 3) * Math.PI * this.radius * this.radius * this.height;
+            }
+        }
+
+        // Example usage
+        const cube = new Cube(4);
+        document.write("Cube Surface Area : ", cube.calculateSurfaceArea().toFixed(2) +"<br>");
+        document.write("Cube Volume : ", cube.calculateVolume().toFixed(2) +"<br><br>");
+
+        const cuboid = new Cuboid(3, 4, 5);
+        document.write("Cuboid Surface Area : ", cuboid.calculateSurfaceArea().toFixed(2) +"<br>");
+        document.write("Cuboid Volume : ", cuboid.calculateVolume().toFixed(2) +"<br><br>");
+
+        const cylinder = new Cylinder(7, 10);
+        document.write("Cylinder Surface Area : ", cylinder.calculateSurfaceArea().toFixed(2) +"<br>");
+        document.write("Cylinder Volume : ", cylinder.calculateVolume().toFixed(2) +"<br><br>");
+
+        const sphere = new Sphere(4);
+        document.write("Sphere Surface Area : ", sphere.calculateSurfaceArea().toFixed(2) +"<br>");
+        document.write("Sphere Volume : ", sphere.calculateVolume().toFixed(2) +"<br><br>");
+
+        const cone = new Cone(4, 8);
+        document.write("Cone Surface Area : ", cone.calculateSurfaceArea().toFixed(2) +"<br>");
+        document.write("Cone Volume : ", cone.calculateVolume().toFixed(2));
+
+    </script>
+</body>
+</html>
